@@ -6,7 +6,7 @@ jobs:
   tests:
     runs-on: ubuntu-18.04
     steps:
-    - name: Send all labels
+    - name: Send labels
       id: send_labels
       if: contains(github.event.pull_request.labels.*.name, 'e2e_gcloud') || contains(github.event.pull_request.labels.*.name, 'e2e_aws') || contains(github.event.pull_request.labels.*.name, 'e2e_do') || contains(github.event.pull_request.labels.*.name, 'e2e_azure') || contains(github.event.pull_request.labels.*.name, 'e2e_eks')
       uses: klaudioz/testing_github_actions@master
