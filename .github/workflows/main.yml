@@ -8,8 +8,12 @@ jobs:
     steps:
     - name: Getting label
       id: getting_label
-      if: contains(github.event.pull_request.labels.*.name, 'e2e_google')
       uses: klaudioz/testing_github_actions@master
+      if: contains(github.event.pull_request.labels.*.name, 'e2e_google')
       env:
         function-name: 'e2e'
         cloud-name: 'google'
+      if: contains(github.event.pull_request.labels.*.name, 'e2e_digitalocean')
+      env:
+        function-name: 'e2e'
+        cloud-name: 'do'
