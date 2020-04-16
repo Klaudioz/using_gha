@@ -16,7 +16,7 @@ jobs:
         echo "::set-output name=label_length::$LL"
     - name: Test output parameters
       run: |
-        echo ${steps.get_length.outputs.label_length}
+        echo ${{ steps.get_length.outputs.label_length }}
     - name: Check E2E Google
       if: contains(github.event.pull_request.labels.*.name, 'e2e_google')
       uses: klaudioz/testing_github_actions@master
