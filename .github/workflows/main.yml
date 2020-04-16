@@ -6,13 +6,14 @@ jobs:
   tests:
     runs-on: ubuntu-18.04
     steps:
-    - name: Getting label
-      id: getting_label
+    - name: Check E2E Google
       uses: klaudioz/testing_github_actions@master
       if: contains(github.event.pull_request.labels.*.name, 'e2e_google')
       env:
         function-name: 'e2e'
         cloud-name: 'google'
+    - name: Check E2E Digital Ocean
+      uses: klaudioz/testing_github_actions@master
       if: contains(github.event.pull_request.labels.*.name, 'e2e_digitalocean')
       env:
         function-name: 'e2e'
