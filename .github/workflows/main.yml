@@ -9,7 +9,7 @@ jobs:
     - name: Printing labels
       id: printing_labels
       env:
-        labels: ${{ github.event.pull_request.labels.*.name }}
+        labels: ${{ github.event.pull_request.labels }}
         labels_json: ${{ toJson(github.event.pull_request.labels) }}
       run: |
         echo "$labels"
