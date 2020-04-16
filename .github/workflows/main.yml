@@ -12,7 +12,7 @@ jobs:
         labels_json: ${{ toJson(github.event.pull_request.labels) }}
       run: |
         echo "$labels_json"
-        array = ${{ github.event.pull_request.labels }}
+        array = ${{ github.event.pull_request.labels.*.name }}
         echo ${array}
     - name: Check E2E Google
       if: contains(github.event.pull_request.labels.*.name, 'e2e_google')
