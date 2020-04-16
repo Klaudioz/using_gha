@@ -6,6 +6,12 @@ jobs:
   tests:
     runs-on: ubuntu-18.04
     steps:
+    - name: Get label
+      env:
+        PR_LABEL: ${{ github.event.pull_request.labels.*.name }}
+      run: |
+        env
+        echo "$PR_LABEL"
     - name: Check E2E Google
       if: contains(github.event.pull_request.labels.*.name, 'e2e_google')
       uses: klaudioz/testing_github_actions@master
