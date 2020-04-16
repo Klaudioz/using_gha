@@ -9,6 +9,6 @@ jobs:
     - name: Check E2E Google
       if: contains(github.event.pull_request.labels.*.name, 'e2e_google')
       uses: klaudioz/testing_github_actions@master
-      env:
+      with:
         function-name: 'e2e'
         cloud-name: 'google'
