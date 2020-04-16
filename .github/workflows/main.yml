@@ -6,6 +6,17 @@ jobs:
   tests:
     runs-on: ubuntu-18.04
     steps:
+    - name: Get number of labels 
+      id: get_length
+      env:
+        labels_json: ${{ toJson(github.event.pull_request.labels) }}
+      run: |
+        echo "$labels_json"
+        LL=$(echo $labels_json | jq '. | length' )
+        echo "::set-output name=label_length::$LL"
+    - name: Test output parameters
+      run: |
+        echo "Number of labels: " ${{ steps.get_length.outputs.label_length }}
     - name: Check E2E Google
       if: contains(github.event.pull_request.labels.*.name, 'e2e_google')
       uses: klaudioz/testing_github_actions@master
