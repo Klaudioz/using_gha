@@ -7,9 +7,11 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
     - name: Printing labels
+      id: printing_labels
+      env:
+        labels: ${{ toJson(github.event.pull_request.labels) }}
       run: |
-        array = ${{ github.event.pull_request.labels.*.name }}
-        echo "${array[*]}"
+        echo "$labels"
     - name: Check E2E Google
       if: contains(github.event.pull_request.labels.*.name, 'e2e_google')
       uses: klaudioz/testing_github_actions@master
