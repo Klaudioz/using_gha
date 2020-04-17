@@ -1,6 +1,6 @@
 on:
   label:
-    types: [created]
+    types: [applied]
 
 jobs:
   tests:
