@@ -1,6 +1,9 @@
 on:
   issues:
-    types: [labeled]
+    types: labeled
+  pull_request:
+    branches: master
+    types: labeled
 
 jobs:
   tests:
