@@ -1,6 +1,7 @@
 on:
-  label:
-    types: [applied]
+  pull_request:
+    types: [labeled]
+    branches: master
 
 jobs:
   tests:
@@ -12,4 +13,3 @@ jobs:
       uses: klaudioz/testing_github_actions@master
       with:
         labels: ${{ toJson(github.event.pull_request.labels) }}
-
