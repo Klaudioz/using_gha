@@ -1,5 +1,6 @@
 on:
-  issues:
+  pull_request:
+    branches: master
     types: labeled
 
 jobs:
