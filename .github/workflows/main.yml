@@ -1,6 +1,6 @@
 on:
-  issues:
-    types: [labeled]
+  label:
+    types: [created]
 
 jobs:
   tests:
