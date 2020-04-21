@@ -1,6 +1,6 @@
 on:
-  pull_request:
-    branches: master
+  issues:
+    types: labeled
 
 jobs:
   tests:
