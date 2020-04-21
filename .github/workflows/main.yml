@@ -1,7 +1,6 @@
 on:
-  pull_request:
-    branches: master
-    types: labeled
+  label:
+    types: [created]
 
 jobs:
   tests:
