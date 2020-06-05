@@ -13,4 +13,4 @@ jobs:
       with:
         labels: ${{ toJson(github.event.pull_request.labels) }}
       env:
-        hello_token: ${{ secrets.HELLO }}
+        SHIPPABLE_TOKEN: ${{ secrets.SHIPPABLE_TOKEN }}
