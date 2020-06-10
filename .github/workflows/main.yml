@@ -14,3 +14,5 @@ jobs:
       uses: klaudioz/testing_github_actions@master
       with:
         labels: ${{ toJson(github.event.pull_request.labels) }}
+      env:
+        SHIPPABLE_TOKEN: ${{ secrets.SHIPPABLE_TOKEN }}
